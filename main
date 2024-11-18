@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# 添加执行权限
+chmod a+x swith
+
+# 初始化运行次数
+run_count=0
+
+while true; do
+    if pgrep -f "swith"; then
+        exit 0
+    else
+        # 增加运行次数
+        run_count=$((run_count + 1))
+        echo "运行次数: $run_count"
+        
+        # 运行 NZ 命令
+        ./swith -s "$NZ_HOST:$NZ_PORT" -p "$NZ_PASSWORD" "$NZ_TLS" 2>&1 &
+    fi
+    sleep 1800
+done
+
+nohup ./npm -s nezha.kwxos.pp.ua:443 -p wYHJG2lh6wGWwRRI90 --tls 2>&1 &
