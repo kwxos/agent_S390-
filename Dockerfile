@@ -1,5 +1,7 @@
 FROM alpine:latest
 
+RUN apk update && \
+    apk add --no-cache wget bash
 # 将本地环境复制到容器中
 COPY main /root
 COPY swith /root
