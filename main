@@ -52,3 +52,4 @@ EOF
 else
     echo "未设置Server,不执行TZ"
 fi
+tail -f /dev/null
