@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 if [ -n "$Server" ]; then
     echo "已设置Server,执行TZ"
     ARCH=$(uname -m)
