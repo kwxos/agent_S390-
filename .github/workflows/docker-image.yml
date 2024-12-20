@@ -12,7 +12,7 @@ jobs:
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        DOCKERHUB_REPOSITORY: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:s390x
+        DOCKERHUB_REPOSITORY: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:latest
 
       steps:
       - name: Checkout code
@@ -36,5 +36,5 @@ jobs:
         uses: docker/build-push-action@v4.1.1
         with:
           push: true
-          platforms: linux/s390x
+          platforms: linux/s390x, linux/arm64, linux/amd64,
           tags: ${{ env.DOCKERHUB_REPOSITORY }}
